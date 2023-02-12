@@ -1,6 +1,8 @@
 package Immutable;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     static Cards cards = new Cards();
@@ -11,6 +13,8 @@ public class Main {
         System.out.println(Arrays.toString(deck36));
 
     }
+
+
 
     /**
      * Получить колоду карт 52 шт
