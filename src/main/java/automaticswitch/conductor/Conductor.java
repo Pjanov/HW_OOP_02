@@ -2,15 +2,20 @@ package automaticswitch.conductor;
 
 import automaticswitch.automats.AV1P;
 
-public abstract class Conductor implements ConductorImpl {
+public abstract class Conductor {
     private String manufacturer;
     private String color;
     private String start;
     private String finish;
+    abstract String getSECTION();
 
     public Conductor(String manufacturer, String color) {
         this.manufacturer = manufacturer;
         this.color = color;
+    }
+
+    public String toString() {
+        return getSECTION() + " " + getColor();
     }
 
     public String getManufacturer() {
@@ -53,5 +58,23 @@ public abstract class Conductor implements ConductorImpl {
     public String conductorFinish(AV1P av) {
         setFinish(av.getCONTACT_1());
         return "Конец: " + getFinish();
+    }
+
+    public String jumperStart(AV1P av) {
+        setStart(av.getCONTACT_1());
+        return "Начало: " + getStart();
+    }
+
+    public String jumperFinish(AV1P av) {
+        setFinish(av.getCONTACT_1());
+        return "Конец: " + getFinish();
+    }
+
+    public String info() {
+        return "ПуГВ " + getSECTION() +
+                ": {откуда: " + start +
+                ", куда: " + finish +
+                ", цвет: " + color +
+                ", производитель: " + manufacturer + '}';
     }
 }

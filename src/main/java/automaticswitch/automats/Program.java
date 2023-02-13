@@ -7,22 +7,28 @@ import automaticswitch.conductor.PuGV2_5mm;
 public class Program {
     public static void main(String[] args) {
 
-        AV1P av1P_16A = new AV1P_16A("Schneider Electric", "C", "Q1");
-        AV1P av1P_25A = new AV1P_25A("Schneider Electric", "B", "Q2");
+        AV1P av1P_25A0 = new AV1P_25A("Schneider Electric", "B", "QF1");
+        AV1P av1P_16A1 = new AV1P_16A("Schneider Electric", "C", "Q1");
+        AV1P av1P_16A2 = new AV1P_16A("Schneider Electric", "C", "Q2");
+        AV1P av1P_25A3 = new AV1P_25A("Schneider Electric", "B", "Q3");
 
-        System.out.println(av1P_16A.getCONTACT_1());
-        System.out.println(av1P_16A.getCONTACT_2());
+        Conductor c2_5mm1 = new PuGV2_5mm("Prysmian", "Белый");
+        Conductor c2_5mm2 = new PuGV2_5mm("Prysmian", "Белый");
+        Conductor c2_5mm3 = new PuGV2_5mm("Prysmian", "Белый");
 
-        System.out.println(av1P_25A.getCONTACT_2());
+        c2_5mm1.conductorStart(av1P_25A0);
+        c2_5mm1.conductorFinish(av1P_16A1);
+        c2_5mm2.jumperStart(av1P_16A1);
+        c2_5mm2.jumperFinish(av1P_16A2);
+        c2_5mm3.jumperStart(av1P_16A2);
+        c2_5mm3.jumperFinish(av1P_25A3);
 
-        Conductor c1_5mm = new PuGV1_5mm("Prysmian", "Белый");
-        Conductor c2_5mm = new PuGV2_5mm("Prysmian", "Синий");
-
-        System.out.println(c1_5mm);
-        System.out.println(c2_5mm);
-
-        System.out.println(c2_5mm.conductorStart(av1P_16A));
-        System.out.println(c1_5mm.conductorFinish(av1P_25A));
+        System.out.println(av1P_25A0.info());
+        System.out.println(av1P_16A1.info());
+        System.out.println(av1P_16A2.info());
+        System.out.println(av1P_25A3.info());
+        System.out.println(c2_5mm1.info());
+        System.out.println(c2_5mm2.info());
+        System.out.println(c2_5mm3.info());
     }
-
 }

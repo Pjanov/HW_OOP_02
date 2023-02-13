@@ -1,8 +1,7 @@
 package automaticswitch.automats;
 
-import automaticswitch.automats.AV1P;
 
-public class AV1P_25A extends AV1P {
+public class AV1P_25A extends AV1P implements General{
     private final String NOMINAL_CURRENT = "25A";
 
     public AV1P_25A(String manufacturer, String characteristic, String marking) {
@@ -18,4 +17,5 @@ public class AV1P_25A extends AV1P {
     public String getNOMINAL_CURRENT() {
         return NOMINAL_CURRENT;
     }
+
 }

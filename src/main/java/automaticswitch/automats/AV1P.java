@@ -1,6 +1,6 @@
 package automaticswitch.automats;
 
-public abstract class AV1P implements General {
+public abstract class AV1P {
     int CONTACT_1 = 1;
     int CONTACT_2 = 2;
     String ON = "ВКЛЮЧЕН";
@@ -8,6 +8,14 @@ public abstract class AV1P implements General {
     private String manufacturer;
     private String characteristic;
     private String marking;
+    abstract String getNOMINAL_CURRENT();
+
+    public String info() {
+        return getMarking() + ": {" +
+                getCharacteristic() +
+                getNOMINAL_CURRENT() +
+                " " + getManufacturer() + "}";
+    }
 
     public AV1P(String manufacturer, String characteristic, String marking) {
         this.manufacturer = manufacturer;
@@ -47,7 +55,6 @@ public abstract class AV1P implements General {
         return OFF;
     }
 
-    @Override
     public String getMarking() {
         return marking;
     }
@@ -55,4 +62,5 @@ public abstract class AV1P implements General {
     public void setMarking(String marking) {
         this.marking = marking;
     }
+
 }
