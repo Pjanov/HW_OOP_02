@@ -50,24 +50,17 @@ public abstract class Conductor {
         this.finish = finish;
     }
 
-    public String conductorStart(AV1P av) {
+    public void conductorStart(AV1P av) {
         setStart(av.getCONTACT_2());
-        return "Начало: " + getStart();
     }
 
-    public String conductorFinish(AV1P av) {
+    public void conductorFinish(AV1P av) {
         setFinish(av.getCONTACT_1());
-        return "Конец: " + getFinish();
     }
 
-    public String jumperStart(AV1P av) {
-        setStart(av.getCONTACT_1());
-        return "Начало: " + getStart();
-    }
-
-    public String jumperFinish(AV1P av) {
-        setFinish(av.getCONTACT_1());
-        return "Конец: " + getFinish();
+    public void jumper(AV1P av1, AV1P av2) {
+        setStart(av1.getCONTACT_1());
+        setFinish(av2.getCONTACT_1());
     }
 
     public String info() {
