@@ -1,10 +1,12 @@
-package automaticswitch;
+package automaticswitch.automats;
+
+import automaticswitch.automats.AV1P;
 
 public class AV1P_25A extends AV1P {
     private final String NOMINAL_CURRENT = "25A";
 
-    public AV1P_25A(String manufacturer, String characteristic) {
-        super(manufacturer, characteristic);
+    public AV1P_25A(String manufacturer, String characteristic, String marking) {
+        super(manufacturer, characteristic, marking);
     }
 
     @Override

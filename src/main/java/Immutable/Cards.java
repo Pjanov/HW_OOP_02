@@ -4,10 +4,13 @@ import java.util.Arrays;
 
 /**
  * Карты(игральные)
+ *
+ * @cardSuit массив из мастей карт
+ * @cardRank массив рангов карт
  */
 final class Cards {
-    private final String[] cardSuit; // масть карты
-    private final String[] cardRank; // ранг карты
+    private final String[] cardSuit;
+    private final String[] cardRank;
 
     {
         cardSuit = new String[]{"Червы", "Бубны", "Трефы", "Пики"};
